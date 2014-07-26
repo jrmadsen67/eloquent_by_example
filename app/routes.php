@@ -15,3 +15,16 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+// Please add your routes to the most appropriate group below. "name" is my own experimentation; may switch that to prefix later
+Route::group(array('name'=>'simple'), function(){
+
+});
+
+Route::group(array('name'=>'intermediate'), function(){
+
+});
+
+Route::group(array('name'=>'advanced'), function(){
+
+});

@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment( function() use ( $app ){
 	switch ( $app['request']->getHost() ) :
-		case "ebe.local/":
+		case "ebe.local":
 			return 'local';
 			break;			
 		default:
