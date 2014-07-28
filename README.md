@@ -8,6 +8,5 @@
 
 - We prefer to keep this simple and focused on Eloquent, so unless you have an more complicated case that requires a repository, please don't use those up front. 
 
-
-
+- please follow the dirctory structure for views
 
