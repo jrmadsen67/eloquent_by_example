@@ -8,5 +8,6 @@
 
 - We prefer to keep this simple and focused on Eloquent, so unless you have an more complicated case that requires a repository, please don't use those up front. 
 
-- please follow the dirctory structure for views
+- Please follow the dirctory structure for views. Add to the directory simple, intermediate, advanced and then your route "as" as a filename
 
+- PLEASE include an explanation at http://eloquentbyexample.com (http://jrmadsen67.github.io/ ) 
