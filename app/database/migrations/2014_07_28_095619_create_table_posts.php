@@ -21,7 +21,7 @@ class CreateTablePosts extends Migration {
 			$table->text('body');
 			$table->enum('status', array('draft', 'published', 'archived'));
 			$table->integer('author_id');
-			$table->timestamps();
+			$table->timestamps();			
 		});
 	}
 

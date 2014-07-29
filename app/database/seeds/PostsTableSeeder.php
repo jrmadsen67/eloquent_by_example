@@ -10,9 +10,10 @@ class PostsTableSeeder extends Seeder
 		$faker = Faker\Factory::create();
 		$faker->seed(1234);
 
-		for ($i=0; $i < 100; $i++) {
+		for ($i=1; $i <= 100; $i++) {
 
 			Post::create(array(
+				'id' => $i,
 				'title' => $faker->catchPhrase,
 				'body' => $faker->realText($maxNbChars = 200, $indexSize = 2),
 				'status'=> $faker->randomElement(array('draft', 'published', 'archived')),

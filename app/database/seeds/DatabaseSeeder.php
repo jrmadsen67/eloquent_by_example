@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('AuthorsTableSeeder');
 		$this->call('PostsTableSeeder');
+		$this->call('BooksTableSeeder');
+		$this->call('AuthorBooksTableSeeder');
 	}
 
 }

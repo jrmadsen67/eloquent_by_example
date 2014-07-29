@@ -22,6 +22,7 @@ class CreateTableAuthors extends Migration {
 			$table->enum('gender', array('female', 'male'));
 			$table->date('birthday');
 			$table->timestamps();
+		
 		});
 	}
 
