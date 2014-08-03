@@ -22,7 +22,6 @@ Route::group(array('name'=>'simple'), function(){
 
 	Route::get('/simple/get_all', function()
 	{
-		// please namespace in case we move things around later
 		$posts = \Post::all();
 		return \View::make('simple.get_all')->with('posts', $posts);
 	});
@@ -33,6 +32,11 @@ Route::group(array('name'=>'simple'), function(){
 		return \View::make('simple.get_one')->with('post', $post);
 	});
 
+	Route::get('/simple/get_women/', function()
+	{
+		$authors = \Author::women()->get();
+		return \View::make('simple.get_women')->with('authors', $authors);
+	});
 	// put more routes for simple examples below...
 
 });
