@@ -20,6 +20,15 @@ Route::get('/', function()
 // Please add your routes to the most appropriate group below. "name" is my own experimentation; may switch that to prefix later
 Route::group(array('name'=>'simple'), function(){
 
+	Route::get('/simple/get_all', function()
+	{
+		// please namespace in case we move things around later
+		$posts = \Post::all();
+		return \View::make('simple.get_all')->with('posts', $posts);
+	});
+
+	// put more routes for simple examples below...
+
 });
 
 Route::group(array('name'=>'intermediate'), function(){
