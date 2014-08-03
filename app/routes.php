@@ -27,6 +27,12 @@ Route::group(array('name'=>'simple'), function(){
 		return \View::make('simple.get_all')->with('posts', $posts);
 	});
 
+	Route::get('/simple/get_one/{id}', function($id)
+	{
+		$post = \Post::find($id);
+		return \View::make('simple.get_one')->with('post', $post);
+	});
+
 	// put more routes for simple examples below...
 
 });
