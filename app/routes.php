@@ -44,6 +44,12 @@ Route::group(array('name'=>'simple'), function(){
 		return \View::make('simple.get_by_gender')->with('authors', $authors);
 	});
 
+	Route::get('/simple/get_author_full/{id}', function($id)
+	{
+		$author = \Author::find($id);
+		return \View::make('simple.get_author_full')->with('author', $author);
+	});	
+
 	// put more routes for simple examples below...
 
 });

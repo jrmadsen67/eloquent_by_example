@@ -2,6 +2,11 @@
 
 class Author extends \Eloquent {
 
+	public function posts()
+	{
+		return $this->hasMany('Post'); 
+	}
+
     public function scopeWomen($query)
     {
     	// Laravel will match the function name to a field if it can. So:
