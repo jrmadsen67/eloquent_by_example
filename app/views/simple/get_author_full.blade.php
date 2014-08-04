@@ -10,4 +10,13 @@
 	@endforeach
 </ul>
 
+
+<h4>Posts - Published</h4>
+<p>(Not really a good way to set up your blades)</p>
+<ul>
+	@foreach ($author->posts()->whereStatus('published')->get() as $post)
+		<li>{{ $post->title}}</li>
+	@endforeach
+</ul>
+
 @stop
