@@ -24,4 +24,10 @@ class Author extends \Eloquent {
         // is the same as: 
         // return $query->where('gender','=',$gender);
     }
+
+    public function books()
+    {
+      return $this->belongsToMany('Book');
+    }
+
 }

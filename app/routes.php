@@ -56,6 +56,21 @@ Route::group(array('name'=>'simple'), function(){
 
 Route::group(array('name'=>'intermediate'), function(){
 
+	// This would normall be done in an PUT or POST, but for symplicity..
+	Route::get('/intermediate/author_books_sync/{id}', function($id)
+	{
+		$author = \Author::find($id);
+
+		$books_authored = array(1,4,12);
+		$author->books()->sync($books_authored);
+
+		// now you can play with this a bit, adding & removing books like this:
+		//$author->books()->attach(8); 
+
+		//$author->books()->detach(1); 		
+		
+		return \View::make('intermediate.author_books_sync')->with('author', $author);
+	});	
 });
 
 Route::group(array('name'=>'advanced'), function(){
