@@ -71,6 +71,14 @@ Route::group(array('name'=>'intermediate'), function(){
 		
 		return \View::make('intermediate.author_books_sync')->with('author', $author);
 	});	
+
+	Route::get('/intermediate/author_lastname_accessor', function()
+	{
+		$authors = \Author::all();
+		return \View::make('intermediate.author_lastname_accessor')->with('authors', $authors);
+	});	
+
+
 });
 
 Route::group(array('name'=>'advanced'), function(){
