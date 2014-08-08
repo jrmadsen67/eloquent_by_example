@@ -32,6 +32,12 @@ Route::group(array('name'=>'simple'), function(){
 		return \View::make('simple.get_one')->with('post', $post);
 	});
 
+	Route::get('/simple/has_one_author/{id}', function($id)
+	{
+		$author = \Post::find($id)->author;
+		return \View::make('simple.has_one_author')->with('author', $author);
+	});
+
 	Route::get('/simple/get_women/', function()
 	{
 		$authors = \Author::women()->get();
