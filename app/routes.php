@@ -62,6 +62,14 @@ Route::group(array('name'=>'simple'), function(){
 
 Route::group(array('name'=>'intermediate'), function(){
 
+	Route::get('/intermediate/author_many_books/{id}', function($id)
+	{
+		// This will grab only the books
+		$books = \Author::find($id)->books;
+		return \View::make('intermediate.author_many_books')->with('books', $books);
+	});	
+
+
 	// This would normall be done in an PUT or POST, but for symplicity..
 	Route::get('/intermediate/author_books_sync/{id}', function($id)
 	{
