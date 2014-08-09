@@ -108,6 +108,18 @@ Route::group(array('name'=>'intermediate'), function(){
 		return \View::make('intermediate.collection_has_key')->with('found', $found);
 	});	
 
+	Route::get('/intermediate/collection_iterator/{author_id}', function($author_id)
+	{
+		// This will grab only the books as a collection
+		$books = \Author::find($author_id)->books->each(function($book)
+		{
+		    $book->random = rand(0,10);
+		});
+
+
+		return \View::make('intermediate.collection_iterator')->with('books', $books);
+	});	
+
 
 	// This would normally be done in an PUT or POST, but for symplicity..
 	Route::get('/intermediate/author_books_sync/{id}', function($id)
