@@ -94,8 +94,22 @@ Route::group(array('name'=>'intermediate'), function(){
 		return \View::make('intermediate.author_many_books')->with('books', $books);
 	});	
 
+	Route::get('/intermediate/collection_has_key/{author_id}/{book_id}', function($author_id, $book_id)
+	{
+		// This will grab only the books as a collection, then check for the book_id
+		$books = \Author::find($author_id)->books;
 
-	// This would normall be done in an PUT or POST, but for symplicity..
+		$found = 'Book not found';
+		if ($books->contains($book_id))
+		{
+		    $found = 'Book found';
+		}
+
+		return \View::make('intermediate.collection_has_key')->with('found', $found);
+	});	
+
+
+	// This would normally be done in an PUT or POST, but for symplicity..
 	Route::get('/intermediate/author_books_sync/{id}', function($id)
 	{
 		$author = \Author::find($id);
