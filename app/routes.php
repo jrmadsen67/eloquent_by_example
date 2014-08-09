@@ -62,6 +62,14 @@ Route::group(array('name'=>'simple'), function(){
 		$authors = \Author::has('posts')->get();
 		return \View::make('simple.get_authors_has_posts')->with('authors', $authors);
 	});	
+
+	Route::get('/simple/get_authors_has_ten_posts', function()
+	{
+		// TODO: all of our authors actually have posts, so you don't see the filter (but this works)
+		$authors = \Author::has('posts', '>=', 10)->get();
+		return \View::make('simple.get_authors_has_ten_posts')->with('authors', $authors);
+	});	
+
 	// put more routes for simple examples below...
 
 });
