@@ -117,6 +117,11 @@ Route::group(array('name'=>'intermediate'), function(){
 		return \View::make('intermediate.author_lastname_accessor')->with('authors', $authors);
 	});	
 
+	Route::get('/intermediate/has_many_posts_through_author/{country}', function($country)
+	{
+		$country = \Country::where('country', '=', $country)->first();
+		return \View::make('intermediate.has_many_posts_through_author')->with('country', $country);
+	});	
 
 });
 

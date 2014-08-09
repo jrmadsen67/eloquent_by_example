@@ -20,7 +20,7 @@ class AuthorsTableSeeder extends Seeder
 				'last_name' => $faker->lastName,
 				'gender'=> $gender,
 				'birthday' => $faker->dateTimeThisCentury(date('1989-01-01')), //make max 25 yrs ago; TODO: make timestamp
-
+				'country_id' => $faker->randomElement(range(1,5))
 			));
 
 		}
