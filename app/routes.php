@@ -121,6 +121,20 @@ Route::group(array('name'=>'intermediate'), function(){
 	});	
 
 
+	Route::get('/intermediate/collection_filter/{author_id}', function($author_id)
+	{
+		// This will grab only the books as a collection
+		$books = \Author::find($author_id)->books->filter(function($book)
+		{
+			//array_filter is applied, and only "true" conditions returned back to collection
+		    $book->random = rand(0,1);
+		    return $book->random;
+		});
+
+
+		return \View::make('intermediate.collection_filter')->with('books', $books);
+	});	
+
 	// This would normally be done in an PUT or POST, but for symplicity..
 	Route::get('/intermediate/author_books_sync/{id}', function($id)
 	{
