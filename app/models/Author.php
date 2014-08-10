@@ -2,6 +2,15 @@
 
 class Author extends \Eloquent {
 
+    // For intermediate/append_attribute_to_author example
+    protected $appends = array('full_name');
+
+    public function getFullNameAttribute($value)
+    {
+        return $value->last_name . ', ' . $value->first_name;
+    }
+
+
     // For intermediate/author_lastname_accessor example
     // Notice this will capitalize ALL authors in ALL examples
     // notice - field name is last_name, so accessor must be getLastNameAttribute

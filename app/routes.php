@@ -163,6 +163,19 @@ Route::group(array('name'=>'intermediate'), function(){
 		return \View::make('intermediate.has_many_posts_through_author')->with('country', $country);
 	});	
 
+	Route::get('/intermediate/append_attribute_to_author/{id}', function($id)
+	{
+		$author = \Author::find($id);
+
+		// not a column - appended field on model. For this example, I'll use an Accessor (getFullNameAttribute)
+		// on the model to shape it
+		// (TODO: come up with a better use case)
+		$author->full_name = $author;
+
+		return \View::make('intermediate.append_attribute_to_author')->with('author', $author);
+	});
+
+
 });
 
 Route::group(array('name'=>'advanced'), function(){
