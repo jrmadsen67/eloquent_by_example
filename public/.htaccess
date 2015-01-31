@@ -5,6 +5,18 @@
 
     RewriteEngine On
 
+    # scum
+    RewriteCond %{HTTP_REFERER} semalt\.com [NC]
+    RewriteCond %{HTTP_REFERER} darodar\.com [NC]
+    RewriteCond %{HTTP_REFERER} buttons-for-website\.com [NC]
+    RewriteCond %{HTTP_REFERER} blackhatworth\.com [NC]
+    RewriteCond %{HTTP_REFERER} hulfingtonpost\.com [NC]
+    RewriteCond %{HTTP_REFERER} cenoval\.ru [NC]
+    RewriteCond %{HTTP_REFERER} anticrawler\.org [NC]
+
+    RewriteRule .* - [F]    
+
+
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
